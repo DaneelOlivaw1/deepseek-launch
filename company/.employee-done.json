@@ -1,0 +1,6 @@
+{
+  "task_id": "wave-002-landing-page",
+  "status": "completed",
+  "summary": "完成 DeepSeek Desktop Landing Page（562行单文件HTML），包含产品展示、4个核心功能、8维竞品对比表格、邮箱等待列表、模拟聊天界面、响应式设计",
+  "deliverables": ["company/product/landing-page.html"]
+}

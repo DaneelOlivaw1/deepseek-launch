@@ -8,62 +8,44 @@
 
 ### skill: read-company-state
 读取公司全部状态文件。
-- 读取 `identity.md`, `strategy.md`, `experiments.md`, `lessons.md`, `company_state.md`
-- 读取最近的 decisions/
-- 输出：完整公司现状摘要
 
 ### skill: review-employee-output
 审查员工提交的任务结果。
-- 读取 `tasks/done/` 中待审查的任务
-- 评估是否符合 Success Criteria
-- 决定：通过 / 要求修改 / 放弃方向
-- 更新 `lessons.md`（如果需要）
 
 ### skill: make-decision
 基于当前状态做出战略决策。
-- 输入：公司现状 + 员工结果 + 市场观察
-- 输出：Decision Log（存入 `decisions/wave-NNN.md`）
-- 格式：Situation → Evidence → Hypothesis → Experiment → Decision
 
 ### skill: assign-task
 创建任务分配给员工。
-- 必须包含：Task, Purpose, Expected Output, Success Criteria, Deadline
-- 写入 `tasks/pending/`
-- 同时更新 `strategy.md` 如果方向改变
 
 ### skill: conduct-review
-每波结束后的 CEO Review。
-- 回答 5 个反思问题
-- 更新 `lessons.md`
-- 决定下一波方向
-- 触发 Git Commit
+每波结束后的 CEO Review + Git Commit。
 
 ### skill: pivot
-当需要转向时执行。
-- 更新 `strategy.md` 记录转向原因
-- 在 `lessons.md` 记录教训
-- 关闭当前实验
-- 创建新的 Wave Decision
+转向。
 
 ---
 
 ## Memory (持久化状态)
 
 ### 当前关注
-- 阶段：Day 0 启动
-- 已决策事项：成立公司，等待 Wave 001
-- 待审查任务：0
-- 活跃员工：1 (Employee #1, idle)
+- 阶段：Day 0 → 过渡到 Day 1
+- Wave 002 已完成：Landing Page 制作完成
+- Employee #1 首次执行任务，表现良好
+- 当前方向：DeepSeek Desktop App
 
 ### 历史认知
-- 无。等待第一轮观察。
+- Wave 001：Founder override，跳过市场扫描
+- Wave 002：Employee 成功完成 Landing Page（562行，$0.0537 成本）
 
 ### 已知陷阱
-- 无。等待实际运营中发现。
+- 需要避免直接开发 App 而不先验证需求
 
 ### 对员工的评估
-- Employee #1：未测试，能力未知
+- Employee #1：能力良好，能独立完成前端页面设计
+- 首次任务全部成功标准通过
+- 成本：7 turns, ~$0.05
 
 ---
 
-*CEO memory — 此文件每波自动更新*
+*CEO memory — 每波自动更新*
