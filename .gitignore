@@ -1,0 +1,19 @@
+# ─── OS ───
+.DS_Store
+Thumbs.db
+
+# ─── Node ───
+node_modules/
+
+# ─── Pi sessions ───
+.pi/sessions/
+
+# ─── Logs ───
+*.log
+autopilot.log
+heartbeat.log
+launchd.log
+launchd-err.log
+
+# ─── Company internal ───
+company/.wave.json
