@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeepSeek Desktop — 让不懂技术的人也能用上最强的国产 AI</title>
+<meta name="description" content="DeepSeek Desktop 是专为普通人打造的桌面 AI 助手。一键安装，像微信一样聊天，支持文档上传，数据本地保护。">
+<!-- Google Analytics placeholder -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<style>
+  :root {
+    --blue-900: #0f172a;
+    --blue-800: #1e293b;
+    --blue-700: #1e3a5f;
+    --blue-600: #2563eb;
+    --blue-500: #3b82f6;
+    --blue-400: #60a5fa;
+    --blue-200: #bfdbfe;
+    --blue-100: #dbeafe;
+    --blue-50: #eff6ff;
+    --indigo-600: #4f46e5;
+    --indigo-500: #6366f1;
+    --emerald-500: #10b981;
+    --emerald-400: #34d399;
+    --amber-400: #fbbf24;
+    --red-400: #f87171;
+    --gray-900: #111827;
+    --gray-700: #374151;
+    --gray-600: #4b5563;
+    --gray-500: #6b7280;
+    --gray-400: #9ca3af;
+    --gray-300: #d1d5db;
+    --gray-200: #e5e7eb;
+    --gray-100: #f3f4f6;
+    --gray-50: #f9fafb;
+    --white: #ffffff;
+    --radius-sm: 8px;
+    --radius: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.1), 0 4px 10px -4px rgba(0,0,0,0.06);
+    --shadow-xl: 0 20px 50px -6px rgba(0,0,0,0.15);
+    --max-w: 1120px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    color: var(--gray-900);
+    background: var(--white);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Navigation ───────────────────── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .nav-inner {
+    max-width: var(--max-w); margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 24px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 1.25rem; color: var(--blue-900);
+    text-decoration: none;
+  }
+  .nav-logo .icon { width: 34px; height: 34px; border-radius: var(--radius-sm); background: linear-gradient(135deg, var(--blue-500), var(--indigo-500)); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; }
+  .nav-cta {
+    background: var(--blue-900); color: #fff; border: none;
+    padding: 10px 22px; border-radius: 50px; font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--blue-800); transform: translateY(-1px); }
+
+  /* ── Hero ─────────────────────────── */
+  .hero {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+  }
+  .hero-badge {
+    display: inline-block; background: var(--blue-50); color: var(--blue-600);
+    font-size: 0.85rem; font-weight: 600; padding: 6px 18px; border-radius: 50px;
+    margin-bottom: 28px; letter-spacing: 0.01em;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 800; line-height: 1.2; color: var(--blue-900);
+    margin-bottom: 20px; letter-spacing: -0.02em;
+  }
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--blue-500), var(--indigo-500));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p.subtitle {
+    font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--gray-600);
+    max-width: 620px; margin: 0 auto 36px; line-height: 1.7;
+  }
+  .hero-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px; border-radius: 50px; font-size: 1rem; font-weight: 600;
+    cursor: pointer; border: none; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--blue-900); color: #fff;
+    box-shadow: var(--shadow-lg);
+  }
+  .btn-primary:hover { background: var(--blue-800); transform: translateY(-2px); box-shadow: var(--shadow-xl); }
+  .btn-outline {
+    background: var(--white); color: var(--blue-900);
+    border: 2px solid var(--gray-300);
+  }
+  .btn-outline:hover { border-color: var(--blue-400); background: var(--blue-50); }
+
+  .hero-visual {
+    margin-top: 56px; position: relative;
+    max-width: 800px; margin-left: auto; margin-right: auto;
+  }
+  .hero-mock {
+    background: linear-gradient(160deg, #f0f4ff 0%, #e8ecf8 100%);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 24px; box-shadow: var(--shadow-xl);
+  }
+  .hero-mock-inner {
+    background: var(--white); border-radius: var(--radius);
+    padding: 20px 24px; box-shadow: var(--shadow-sm);
+  }
+  .mock-chat {
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .mock-msg {
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .mock-msg.user { justify-content: flex-end; }
+  .mock-msg .avatar {
+    width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+    font-size: 0.7rem; display: flex; align-items: center; justify-content: center; font-weight: 700;
+  }
+  .mock-msg.ai .avatar { background: var(--blue-100); color: var(--blue-600); }
+  .mock-msg.user .avatar { background: var(--emerald-500); color: #fff; order: 1; }
+  .mock-msg .bubble {
+    max-width: 70%; padding: 10px 16px; border-radius: 18px;
+    font-size: 0.9rem; line-height: 1.5;
+  }
+  .mock-msg.ai .bubble { background: var(--gray-100); color: var(--gray-900); border-bottom-left-radius: 6px; }
+  .mock-msg.user .bubble { background: var(--blue-500); color: #fff; border-bottom-right-radius: 6px; }
+  .mock-input {
+    display: flex; gap: 8px; margin-top: 8px; align-items: center;
+  }
+  .mock-input-bar {
+    flex: 1; background: var(--gray-100); border-radius: 50px;
+    padding: 12px 18px; font-size: 0.85rem; color: var(--gray-400);
+  }
+  .mock-input-btn {
+    width: 38px; height: 38px; border-radius: 50%; background: var(--blue-500);
+    display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* ── Social Proof ─────────────────── */
+  .social-proof {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 0 24px 64px; text-align: center;
+  }
+  .social-proof .stats {
+    display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;
+  }
+  .social-proof .stat h3 {
+    font-size: 1.8rem; font-weight: 800; color: var(--blue-900);
+  }
+  .social-proof .stat p { font-size: 0.85rem; color: var(--gray-500); margin-top: 2px; }
+
+  /* ── Section Shared ───────────────── */
+  .section {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 80px 24px;
+  }
+  .section-header {
+    text-align: center; margin-bottom: 56px;
+  }
+  .section-header h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800; color: var(--blue-900); margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .section-header p {
+    font-size: 1.05rem; color: var(--gray-600); max-width: 560px; margin: 0 auto;
+  }
+
+  /* ── Features ─────────────────────── */
+  .features-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .feature-card {
+    background: var(--white); border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg); padding: 32px 28px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .feature-card:hover { border-color: var(--blue-200); box-shadow: var(--shadow-lg); }
+  .feature-icon {
+    width: 48px; height: 48px; border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; margin-bottom: 20px;
+  }
+  .feature-icon.blue { background: var(--blue-50); color: var(--blue-600); }
+  .feature-icon.green { background: #ecfdf5; color: var(--emerald-500); }
+  .feature-icon.amber { background: #fffbeb; color: #d97706; }
+  .feature-icon.indigo { background: #eef2ff; color: var(--indigo-500); }
+  .feature-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--blue-900); margin-bottom: 8px; }
+  .feature-card p { font-size: 0.92rem; color: var(--gray-600); line-height: 1.6; }
+
+  /* ── Comparison ───────────────────── */
+  .comparison-wrap {
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-lg); border: 1px solid var(--gray-200);
+  }
+  .comparison-table {
+    width: 100%; min-width: 640px; border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+  .comparison-table thead th {
+    background: var(--blue-900); color: #fff;
+    padding: 16px 20px; text-align: left; font-weight: 600;
+    white-space: nowrap;
+  }
+  .comparison-table thead th:first-child { border-radius: var(--radius-lg) 0 0 0; }
+  .comparison-table thead th:last-child { border-radius: 0 var(--radius-lg) 0 0; }
+  .comparison-table thead th.highlight-col {
+    background: linear-gradient(135deg, var(--blue-600), var(--indigo-600));
+  }
+  .comparison-table tbody td {
+    padding: 14px 20px; border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-700);
+  }
+  .comparison-table tbody tr:last-child td { border-bottom: none; }
+  .comparison-table tbody tr:nth-child(even) { background: var(--gray-50); }
+  .comparison-table .check { color: var(--emerald-500); font-weight: 700; }
+  .comparison-table .cross { color: var(--red-400); }
+  .comparison-table .partial { color: var(--amber-400); }
+
+  /* ── CTA ──────────────────────────── */
+  .cta-section {
+    background: var(--blue-900); color: #fff; text-align: center;
+    padding: 80px 24px; margin-top: 40px;
+  }
+  .cta-inner { max-width: 600px; margin: 0 auto; }
+  .cta-inner h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .cta-inner > p { font-size: 1.05rem; color: rgba(255,255,255,0.75); margin-bottom: 36px; }
+  .waitlist-form {
+    display: flex; gap: 10px; max-width: 460px; margin: 0 auto;
+    flex-wrap: wrap; justify-content: center;
+  }
+  .waitlist-form input[type="email"] {
+    flex: 1; min-width: 220px;
+    padding: 14px 20px; border-radius: 50px; border: 2px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08); color: #fff; font-size: 0.95rem;
+    outline: none; transition: border-color 0.2s;
+  }
+  .waitlist-form input[type="email"]::placeholder { color: rgba(255,255,255,0.5); }
+  .waitlist-form input[type="email"]:focus { border-color: var(--blue-400); }
+  .waitlist-form button {
+    padding: 14px 32px; border-radius: 50px; border: none;
+    background: var(--emerald-500); color: #fff; font-size: 0.95rem; font-weight: 700;
+    cursor: pointer; transition: background 0.2s, transform 0.15s;
+  }
+  .waitlist-form button:hover { background: var(--emerald-400); transform: translateY(-1px); }
+  .waitlist-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .form-feedback { margin-top: 14px; font-size: 0.9rem; min-height: 22px; }
+  .form-feedback.success { color: var(--emerald-400); }
+  .form-feedback.error { color: var(--red-400); }
+
+  /* ── Footer ───────────────────────── */
+  .footer {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 40px 24px; text-align: center;
+    color: var(--gray-500); font-size: 0.85rem;
+    border-top: 1px solid var(--gray-100);
+  }
+  .footer a { color: var(--gray-600); text-decoration: none; }
+  .footer a:hover { color: var(--blue-600); }
+
+  /* ── Responsive ──────────────────── */
+  @media (max-width: 640px) {
+    .hero { padding: 48px 20px 40px; }
+    .hero-visual { margin-top: 36px; }
+    .hero-mock { padding: 14px; }
+    .section { padding: 56px 20px; }
+    .section-header { margin-bottom: 36px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .social-proof .stats { gap: 28px; }
+    .comparison-wrap { margin: 0 -20px; border-radius: 0; }
+    .cta-section { padding: 56px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── Navigation ─── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="icon">✨</span> DeepSeek Desktop
+    </a>
+    <button class="nav-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">抢先体验</button>
+  </div>
+</nav>
+
+<!-- ─── Hero ─── -->
+<section class="hero">
+  <span class="hero-badge">🚀 macOS &amp; Windows 即将上线</span>
+  <h1>
+    让不懂技术的人<br>也能用上<span class="highlight">最强的国产 AI</span>
+  </h1>
+  <p class="subtitle">
+    DeepSeek Desktop 把复杂的 AI 变成像微信一样简单的聊天窗口。
+    不用学提示词，不用配 API，装上就能用。
+  </p>
+  <div class="hero-actions">
+    <a href="#cta" class="btn btn-primary">📧 加入等待列表</a>
+    <a href="#features" class="btn btn-outline">了解更多 ↓</a>
+  </div>
+
+  <!-- Mock chat window -->
+  <div class="hero-visual">
+    <div class="hero-mock">
+      <div class="hero-mock-inner">
+        <div class="mock-chat">
+          <div class="mock-msg ai">
+            <span class="avatar">DS</span>
+            <span class="bubble">你好！我是 DeepSeek，有什么可以帮你的吗？😊</span>
+          </div>
+          <div class="mock-msg user">
+            <span class="avatar">我</span>
+            <span class="bubble">帮我总结一下这份合同的重点</span>
+          </div>
+          <div class="mock-msg ai">
+            <span class="avatar">DS</span>
+            <span class="bubble">好的！我已经读取了你上传的 PDF 合同，核心条款如下：<br>① 付款周期：30 天<br>② 违约金：合同总额的 5%<br>③ 自动续约条款需注意 ⚠️<br><br>需要我详细解释哪一条？</span>
+          </div>
+        </div>
+        <div class="mock-input">
+          <span class="mock-input-bar">输入你的问题...</span>
+          <span class="mock-input-btn">↑</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Social Proof ─── -->
+<section class="social-proof">
+  <div class="stats">
+    <div class="stat"><h3>10M+</h3><p>DeepSeek 全球用户</p></div>
+    <div class="stat"><h3>#1</h3><p>国产开源大模型</p></div>
+    <div class="stat"><h3>¥0</h3><p>完全免费使用</p></div>
+    <div class="stat"><h3>128K</h3><p>上下文窗口</p></div>
+  </div>
+</section>
+
+<!-- ─── Features ─── -->
+<section class="section" id="features">
+  <div class="section-header">
+    <h2>为什么选择 DeepSeek Desktop？</h2>
+    <p>专为普通用户设计，不需要任何技术背景，打开就能用。</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon blue">📦</div>
+      <h3>一键安装，零配置</h3>
+      <p>下载 → 安装 → 打开，三步搞定。不需要申请 API Key，不需要设置环境变量，甚至连命令行都不用打开。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon green">💬</div>
+      <h3>像微信一样聊天</h3>
+      <p>熟悉的聊天气泡界面，打字就能对话。支持多轮上下文记忆，你可以像跟朋友聊天一样自然地提问。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon amber">📄</div>
+      <h3>文档上传，秒懂内容</h3>
+      <p>拖拽 PDF、Word、Excel 到窗口，AI 自动读取并分析。合同审查、论文总结、报表解读，交给它。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon indigo">🔒</div>
+      <h3>数据留在你的电脑</h3>
+      <p>聊天记录和文档只在本地存储，不上传云端。你的隐私数据，始终在你自己的掌控之中。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Comparison ─── -->
+<section class="section" id="compare">
+  <div class="section-header">
+    <h2>跟其他方案比，好在哪里？</h2>
+    <p>市面上的 AI 工具很多，但真正适合普通人的不多。我们做了一个诚实的对比。</p>
+  </div>
+
+  <div class="comparison-wrap">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>对比维度</th>
+          <th class="highlight-col">✨ DeepSeek Desktop</th>
+          <th>ChatGPT Desktop</th>
+          <th>DeepSeek 网页版</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>安装难度</strong></td>
+          <td class="check">✓ 一键安装</td>
+          <td class="partial">◐ 需注册 OpenAI 账号</td>
+          <td class="check">✓ 无需安装</td>
+        </tr>
+        <tr>
+          <td><strong>免费使用</strong></td>
+          <td class="check">✓ 完全免费</td>
+          <td class="cross">✗ GPT-4 需 $20/月</td>
+          <td class="check">✓ 完全免费</td>
+        </tr>
+        <tr>
+          <td><strong>文档上传</strong></td>
+          <td class="check">✓ PDF / Word / Excel</td>
+          <td class="check">✓ 支持多种格式</td>
+          <td class="check">✓ 支持</td>
+        </tr>
+        <tr>
+          <td><strong>本地数据隐私</strong></td>
+          <td class="check">✓ 数据本地存储</td>
+          <td class="cross">✗ 云端处理</td>
+          <td class="cross">✗ 浏览器缓存，有泄露风险</td>
+        </tr>
+        <tr>
+          <td><strong>中文能力</strong></td>
+          <td class="check">✓ 国产模型，中文原生</td>
+          <td class="partial">◐ 翻译味较重</td>
+          <td class="check">✓ 国产模型，中文原生</td>
+        </tr>
+        <tr>
+          <td><strong>离线使用</strong></td>
+          <td class="check">✓ 支持离线对话</td>
+          <td class="cross">✗ 必须联网</td>
+          <td class="cross">✗ 必须联网</td>
+        </tr>
+        <tr>
+          <td><strong>多轮对话记忆</strong></td>
+          <td class="check">✓ 上下文 128K</td>
+          <td class="partial">◐ 上下文 32K（免费版）</td>
+          <td class="check">✓ 上下文 128K</td>
+        </tr>
+        <tr>
+          <td><strong>价格</strong></td>
+          <td class="check" style="font-weight:800;color:var(--emerald-500);">💰 免费</td>
+          <td class="cross">$20/月（Plus）</td>
+          <td class="check" style="font-weight:800;color:var(--emerald-500);">💰 免费</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ─── CTA / Waitlist ─── -->
+<section class="cta-section" id="cta">
+  <div class="cta-inner">
+    <h2>抢先体验 DeepSeek Desktop</h2>
+    <p>我们正在做最后的打磨。留下邮箱，上线第一时间通知你。<br>早期用户将获得永久免费使用资格。</p>
+
+    <form class="waitlist-form" id="waitlistForm">
+      <input type="email" id="emailInput" placeholder="输入你的邮箱地址" required autocomplete="email">
+      <button type="submit" id="submitBtn">🚀 加入等待列表</button>
+    </form>
+    <div class="form-feedback" id="formFeedback"></div>
+
+    <p style="margin-top:28px;font-size:0.82rem;color:rgba(255,255,255,0.45);">
+      我们不发送垃圾邮件，你的邮箱只用于上线通知。
+    </p>
+  </div>
+</section>
+
+<!-- ─── Footer ─── -->
+<footer class="footer">
+  <p>© 2025 DeepSeek Desktop · 基于 <a href="https://deepseek.com" target="_blank" rel="noopener">DeepSeek</a> 大模型技术</p>
+  <p style="margin-top:4px;">Made with ❤️ for 不懂技术的普通人</p>
+</footer>
+
+<!-- ─── JS ─── -->
+<script>
+(function() {
+  var form = document.getElementById('waitlistForm');
+  var email = document.getElementById('emailInput');
+  var btn = document.getElementById('submitBtn');
+  var fb = document.getElementById('formFeedback');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var val = email.value.trim();
+
+    if (!val) {
+      fb.textContent = '请输入邮箱地址';
+      fb.className = 'form-feedback error';
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+      fb.textContent = '请输入有效的邮箱地址';
+      fb.className = 'form-feedback error';
+      return;
+    }
+
+    // Simulate submission (replace with real endpoint later)
+    btn.disabled = true;
+    btn.textContent = '提交中...';
+    fb.textContent = '';
+    fb.className = 'form-feedback';
+
+    setTimeout(function() {
+      fb.textContent = '✅ 已加入等待列表！上线时会第一时间通知你。';
+      fb.className = 'form-feedback success';
+      btn.disabled = false;
+      btn.textContent = '🚀 加入等待列表';
+      email.value = '';
+
+      // Google Analytics event (placeholder)
+      if (typeof gtag === 'function') {
+        gtag('event', 'waitlist_signup', {
+          event_category: 'engagement',
+          event_label: 'landing_page_waitlist'
+        });
+      }
+    }, 800);
+  });
+})();
+</script>
+
+</body>
+</html>
