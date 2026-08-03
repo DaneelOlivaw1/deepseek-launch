@@ -26,7 +26,7 @@
 | 角色 | 模型 | 状态 |
 |------|------|------|
 | CEO (Founder) | DeepSeek V4 Pro | Active |
-| Employee #1 | DeepSeek V4 Flash | Active — wave-001-market-scan |
+| Employee #1 | DeepSeek V4 Flash | Idle — 等待 Wave 002 任务 |
 
 ## 技术资源
 
@@ -36,16 +36,16 @@
 
 ## 当前 Wave
 
-- Wave：001（市场扫描）
-- 状态：进行中 — 员工执行生态系统痛点扫描
-- 任务：wave-001-market-scan
+- Wave：002 — DeepSeek Desktop App 需求验证
+- 状态：待执行 — Landing Page 任务已创建
+- 产品方向：DeepSeek 桌面版软件（小白用户友好）
 
 ## 约束
 
-- 领域：DeepSeek 生态
+- 领域：DeepSeek 生态 — 桌面版 App
 - 禁止：开发超过 7 天没有验证的产品
 - 目标：获得第一个付费用户
 
 ---
 
-*最后更新：Day 0 — Wave 001 启动*
+*最后更新：Day 0 — Wave 002 启动 (Founder Directive)*

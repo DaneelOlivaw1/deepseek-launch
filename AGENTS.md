@@ -204,16 +204,31 @@ GitHub 是公司的**唯一事实记录来源**。
 ## 13. 当前初始状态
 
 - 公司：DeepSeek Launch
-- 阶段：Day 0，尚未启动 Wave 001
+- 阶段：Day 0 → Wave 002 已启动
+- 产品方向：**DeepSeek Desktop — 让小白用户方便用 DeepSeek 的桌面 App**
+- 目标用户：非技术用户（不需要命令行、不需要 API key）
 - 现金：$100
 - 时间：30 天
 - CEO：Founder (DeepSeek V4 Pro)
-- 员工：Employee #1 (DeepSeek V4 Flash)，闲置
-- 领域：DeepSeek 生态
+- 员工：Employee #1 (DeepSeek V4 Flash)
+- 当前任务：wave-002-landing-page — 制作产品 Landing Page
 - 目标：获得第一个付费用户
 - 禁止：开发超过7天没有验证的产品
 
 ---
 
+## 14. 产品方向（Founder 定）
+
+**DeepSeek 桌面版软件**
+
+- 一键安装，不需要配置 API key
+- 聊天界面，像微信一样简单
+- 支持文档上传（PDF/Word）
+- 本地数据隐私保护
+- 优先 macOS 平台，后续 Windows
+- 差异化：比 ChatGPT Desktop 便宜，比 DeepSeek 网页版体验好
+
+---
+
 *此文件由 Founder 创建。Pi 每次启动时自动加载。*
-*最后更新: Day 0*
+*最后更新: Day 0 — Wave 002*
