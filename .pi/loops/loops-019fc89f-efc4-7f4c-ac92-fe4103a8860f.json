@@ -1,0 +1,19 @@
+{
+  "nextId": 2,
+  "loops": [
+    {
+      "id": "1",
+      "prompt": "CEO HEARTBEAT — 定时唤醒。\n\n你醒来后，按 AGENTS.md 的指令执行：\n\n1. **读取公司状态**：\n   - company/company_state.md（钱、时间、人力）\n   - company/strategy.md（当前方向）\n   - company/experiments.md（实验状态）\n   - company/lessons.md（教训）\n   - company/agents/ceo/memory.md（CEO记忆）\n   - company/tasks/in-progress/（员工在做什么）\n   - company/tasks/done/（待审查）\n\n2. **唤醒 CEO 做决策**：\n   - 有待审查任务 → 优先审查\n   - 有超时任务 → 处理阻塞\n   - 否则 → 做心跳决策（继续/调整/分配新任务）\n\n3. **执行 CEO 决策**：分配任务给 Employee、审查结果、更新实验记录\n\n4. **结束 Wave 时 Git Commit**：格式 wave-{number}: {decision}\n\n你现在是 DeepSeek Launch 的 pi Orchestrator。CEO = DeepSeek V4 Pro，Employee = DeepSeek V4 Flash。",
+      "trigger": {
+        "type": "cron",
+        "schedule": "*/30 * * * *"
+      },
+      "status": "active",
+      "recurring": true,
+      "createdAt": 1785777892771,
+      "updatedAt": 1785777892771,
+      "expiresAt": 1786382692771,
+      "fireCount": 0
+    }
+  ]
+}

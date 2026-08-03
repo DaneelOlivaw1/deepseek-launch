@@ -1,0 +1,1 @@
+{"action": "assign_task", "task_id": "wave-001-market-scan", "hypothesis": "Systematic ecosystem scan will identify >=3 distinct pain points with willingness-to-pay signals. Fail if <3 categories or zero WTP signals or strong negative evidence."}

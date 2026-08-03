@@ -26,7 +26,7 @@
 | 角色 | 模型 | 状态 |
 |------|------|------|
 | CEO (Founder) | DeepSeek V4 Pro | Active |
-| Employee #1 | DeepSeek V4 Flash | Idle |
+| Employee #1 | DeepSeek V4 Flash | Active — wave-001-market-scan |
 
 ## 技术资源
 
@@ -36,8 +36,9 @@
 
 ## 当前 Wave
 
-- Wave：0（公司成立）
-- 状态：初始化完成，等待 Wave 001 启动
+- Wave：001（市场扫描）
+- 状态：进行中 — 员工执行生态系统痛点扫描
+- 任务：wave-001-market-scan
 
 ## 约束
 
@@ -47,4 +48,4 @@
 
 ---
 
-*最后更新：Day 0*
+*最后更新：Day 0 — Wave 001 启动*
