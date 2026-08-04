@@ -54,3 +54,47 @@ Target user is **non-technical international users**. Chinese communities (V2EX,
 
 ## Hypothesis
 **H003-rev:** If we target English-speaking international communities (r/privacy, r/macapps, HN) instead of Chinese communities, we will reach our actual target users (non-technical international users). Success = posts are approved/published in these communities without removal. Fail if posts are removed as spam or receive 0 engagement after 48 hours.
+
+---
+
+## Employee Report
+
+**Completed:** 2025-08-04 ~02:30 UTC
+**Employee:** Employee #1
+**Status:** ✅ Completed
+
+### Summary
+Wrote 3 English promotional posts targeting international communities, replacing the 2 Chinese posts (V2EX, 知乎). All posts include title, body, CTA with landing page URL, best posting times (UTC-referenced), and community-specific rules/risks.
+
+### Posts Written
+
+| # | Channel | Replaces | Angle | Risk Level |
+|---|---------|----------|-------|------------|
+| 1 | Reddit r/privacy | V2EX (中文) | Local-first privacy, no cloud, no telemetry | Medium-High |
+| 2 | Reddit r/macapps | 知乎 (中文) | Free Mac AI assistant, no subscription | Low-Medium |
+| 3 | HN Show HN / Ask HN | (Bonus) | Transparency about validation stage | High (Show HN) / Medium (Ask HN) |
+
+### Key Honest Findings
+- 🚨 **Landing page is in Chinese (zh-CN).** Promoting a Chinese-only page to English communities will severely hurt conversion. Documented this prominently.
+- 🚨 **Waitlist form is simulated** (`setTimeout` fakes success). No emails are actually collected. H002 cannot be tested without fixing this.
+- 🚨 **GA ID is placeholder** (`G-XXXXXXXXXX`). No visitor tracking possible.
+- ⚠️ **HN Show HN rules:** Landing pages with waitlist forms don't qualify per HN guidelines. Included both a Show HN version (risky) and an Ask HN alternative (safer).
+- The r/privacy post is framed as a personal privacy discovery story, not a product pitch — this matches community norms but must be posted by an account with genuine history.
+
+### Deliverables
+- `company/product/promo-content-intl.md` — 3 English promotional posts + posting guidelines + critical blockers doc
+
+### What's Preserved
+- ✅ Reddit r/LocalLLaMA English post (unchanged from original `promo-content.md`)
+
+### Recommended Action Before Posting
+1. Add English version to landing page (minimum: hero + CTA + features)
+2. Connect waitlist form to real email collection (Google Forms, Mailchimp, etc.)
+3. Replace GA4 placeholder with real ID
+4. Then post in order: r/macapps → r/privacy → r/LocalLLaMA → HN (Ask HN version)
+
+### Success Criteria Check
+- [x] 3 English posts targeting international communities
+- [x] Tone matches each community's culture (informational for privacy, recommendation-style for macapps, transparent/self-aware for HN)
+- [x] All posts include landing page URL
+- [x] 0 Chinese-language content in deliverables

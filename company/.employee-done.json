@@ -1,9 +1,6 @@
 {
-  "task_id": "wave-003-deploy-promote",
+  "task_id": "task-004-translate-landing-en",
   "status": "completed",
-  "summary": "Landing Page deployed to GitHub Pages at https://daneelolivaw1.github.io/deepseek-launch/ — HTTP 200 confirmed. 3 community promo posts written (Reddit r/LocalLLaMA, V2EX, Zhihu) with CTAs and URL links. Auto-posting blocked by auth requirements — all marked for manual posting.",
-  "deliverables": [
-    "index.html",
-    "company/product/promo-content.md"
-  ]
+  "summary": "Translated entire index.html to English. 0 Chinese chars in user-visible content. Formsubmit and GA comments preserved. Pushed to GitHub — live at https://daneelolivaw1.github.io/deepseek-launch/",
+  "deliverables": ["index.html", "company/tasks/done/task-004-translate-landing-en.md"]
 }

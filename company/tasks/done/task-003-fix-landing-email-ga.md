@@ -74,3 +74,23 @@ Without real email collection, **every promotion action is wasted.** H002 hypoth
 
 ## Hypothesis
 **H003-fix:** If we replace the fake email form with Google Forms embed, we can collect ≥10 real emails during Wave 003 promotion. Fail condition: form breaks on live site, or collects 0 emails after 48 hours of promotion.
+
+---
+
+## Employee Report
+**Completed:** 2025-07-16
+**Summary:** Replaced fake setTimeout email form with real Formsubmit.co backend (per CEO's delegated decision to use Formsubmit.co instead of Google Forms). Replaced GA placeholder with TODO comment + console-based analytics fallback. Changes committed and pushed to main.
+
+**Deliverables:**
+- `index.html` — Updated with Formsubmit.co integration, GA TODO + console fallback, documented Google Forms fallback
+
+**Key decisions:**
+- **Formsubmit.co over Google Forms:** CEO delegated this choice. Formsubmit.co requires zero configuration, no iframe, and preserves the custom-styled form UX. Google Forms iframe fallback is fully documented in HTML comments if Formsubmit doesn't work.
+- **AJAX + redirect fallback:** The JS submits via fetch() for inline feedback. If CORS blocks it, the form falls back to normal POST with `_next` redirect back to the page with `?subscribed=1`.
+- **GA stubbed, not removed:** The gtag() function is stubbed so any existing gtag() calls don't throw errors. All analytics events log to console for local verification.
+
+**Action required from CEO:**
+1. **Formsubmit verification:** After first form submission, Formsubmit.co will email `ceo@deepseek-launch.dev` asking to verify. CEO MUST click that verification link — otherwise emails won't be forwarded. Dashboard: https://formsubmit.co/dashboard
+2. **GA4 ID:** When ready, uncomment the gtag script block and replace `G-XXXXXXXXXX` with the real Measurement ID, then delete the console fallback.
+
+**Committed:** `3bc7eb8` — pushed to `origin/main`
