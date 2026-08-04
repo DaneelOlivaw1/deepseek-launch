@@ -11,6 +11,7 @@
 | 001 | 市场扫描可发现≥3个痛点 | 未执行 | Founder 直接定方向 |
 | 002 | Landing Page 验证需求 | ✅ 页面已完成 | 等待推广和数据 |
 | 003 | Deploy & Promote — ≥10 emails | ⚠️ 未执行 | 准备完成，但发现 Truth Crisis 阻塞推广 |
+| 004 | Truth Alignment + Honest Promotion — ≥10 emails from honest LP | 🔄 进行中 | Phase 1: 诚实重写 LP (Task #5) |
 
 ---
 
@@ -66,4 +67,17 @@
 
 ---
 
-*最后更新：Day 1 — Wave 003 关闭*
+## Wave 004 — Truth Alignment + Honest Promotion (🔄 进行中)
+
+**假设 (H004):** 如果用 HONEST 定位（简单桌面封装——无需终端、无需 API Key、云驱动、无需账号），国际非技术用户仍然会表达兴趣。核心价值是简单，不是隐私。
+
+**CEO 决策:** Option A — 诚实重写 LP。详见 `decisions/wave-004.md`。
+
+**Phase 1:** Employee Task #5 — 重写 `index.html`，删除所有虚假的 local/offline 声明，保留 Formsubmit + GA。
+**Phase 2:** Founder 操作：点击 Formsubmit 验证邮件、创建 GA4、发布到 Reddit/HN。
+
+**状态:** Task #5 已分配，待 Employee 完成。
+
+---
+
+*最后更新：Day 1 — Heartbeat #3：Wave 004 启动*

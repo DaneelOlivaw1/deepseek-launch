@@ -40,13 +40,13 @@
 
 - Wave 002：✅ 完成 — Landing Page 已制作
 - Wave 003：✅ 关闭 — 准备完成，推广未执行（阻塞：Landing Page 真实性危机）
-- Wave 004：⏳ 待启动 — "Truth Alignment + Execute Promotion"
+- Wave 004：🔄 进行中 — "Truth Alignment + Execute Promotion"（Phase 1: LP 诚实重写）
 
 ## 当前阻塞项
 
 | # | 阻塞项 | 严重性 | 修复方式 |
 |---|--------|--------|----------|
-| 1 | 🔴 Landing Page 声称"本地运行""离线模式"，但 MVP 是 API 封装（云处理） | 🔴 致命 | 重写 Landing Page 声明为诚实版本（简单桌面封装，非本地隐私） |
+| 1 | 🔴→🟢 Landing Page 声明诚实化 | ~~致命~~ → 已决策 | Task #5 进行中：Employee 重写 LP 为诚实版 |
 | 2 | 🟡 Formsubmit 验证邮件需 Founder 点击 | 🟡 高 | Founder 去邮箱点击验证链接 |
 | 3 | 🟡 GA4 ID 是占位符（G-XXXXXXXXXX） | 🟡 中等 | Founder 创建 GA4 property 或接受 console fallback |
 | 4 | 🟡 推广未执行——零流量、零数据 | 🟡 高 | Wave 004 执行（阻塞项 #1 必须先解决） |
@@ -61,4 +61,4 @@
 
 ---
 
-*最后更新：Day 1 — Wave 003 关闭，Wave 004 待启动*
+*最后更新：Day 1 — Heartbeat #3：Wave 004 启动，Truth Alignment 决策为 Option A（诚实重写），Task #5 已分配*

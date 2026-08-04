@@ -7,21 +7,24 @@ Day 0 → Day 1 过渡 — Founder 确定了产品方向。
 **DeepSeek 桌面版软件** — 让不懂技术的小白用户也能方便使用 DeepSeek。
 
 目标用户：非技术用户（不需要会命令行、不需要懂 API、不需要配置参数）
-核心价值：一键安装、开箱即用、体验好
-产品形态：macOS/Windows 桌面应用，封装 DeepSeek API
+核心价值：一键安装、开箱即用、无需账号、体验好
+产品形态：macOS/Windows 桌面应用，封装 DeepSeek API（云处理，本地聊天记录存储）
+诚实约束：不声称本地推理、不声称离线模式、不声称数据绝不上传云端
 
 ## 为什么选择这个方向
 Founder 直接决策。逻辑：
 - DeepSeek 目前主要通过 API 和网页版使用，对普通用户门槛高
 - 桌面 App 是让 AI 下沉到普通用户最直接的方式
 - 类比：ChatGPT 有桌面版，DeepSeek 也应该有
-- 差异化：可以做本地化、隐私保护、离线能力等 ChatGPT 做不到的事
+- 差异化：无需账号（ChatGPT Desktop 需要 OpenAI 账号）；更简单的安装体验；DeepSeek 免费 API 生态
 
 ## 当前假设
-> **H002:** 如果 DeepSeek 有一个好用的桌面 App（一键安装、界面简洁、速度快），非技术用户会愿意使用甚至付费。验证方式：做一个 landing page 展示产品概念，测试用户注册意愿。
+> **H002:** ~~如果 DeepSeek 有一个好用的桌面 App（一键安装、界面简洁、速度快），非技术用户会愿意使用甚至付费。~~ （已被 H004 替代——H002 的 LP 含虚假声明）
+
+**H004 (Wave 004):** 如果 DeepSeek 有一个简单诚实的桌面 App（一键安装、无需 API Key、无需账号、云驱动），非技术用户会愿意使用甚至付费。核心价值是简单，不是隐私。验证方式：诚实 landing page + 推广。
 
 ## 当前实验
-> **Wave 002 — 桌面 App Landing Page 验证:** 制作产品 landing page，展示 DeepSeek Desktop 的概念和价值主张，测试用户注册意愿。
+> **Wave 004 — Truth Alignment + Honest Promotion:** 重写 LP 为诚实版（简单桌面封装，云驱动），然后推广至 Reddit/HN。验证 H004：简单（而非隐私）是否足以驱动用户兴趣。
 
 ## 竞争分析
 - **ChatGPT Desktop**: 已有 macOS 版，体验好，但需要付费
@@ -36,4 +39,4 @@ Founder 直接决策。逻辑：
 
 ---
 
-*最后更新：Day 0 — Wave 002 启动 (Founder Directive)*
+*最后更新：Day 1 — Heartbeat #3：价值主张从"简单+隐私"精炼为"简单+零配置+无需账号"*
