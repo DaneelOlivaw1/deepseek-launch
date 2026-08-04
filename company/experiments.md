@@ -37,4 +37,25 @@
 
 ---
 
-*最后更新：Day 0 — Wave 002 完成*
+## Wave 003 — Deploy & Promote Landing Page（修正中）
+
+**假设 (延续 H002):** 向目标用户展示产品概念，≥10 人会留下邮箱。
+
+**行动:** 部署 Landing Page 到 GitHub Pages + 撰写推广文案。
+**交付物:** 
+- ✅ Landing Page 已部署：https://daneelolivaw1.github.io/deepseek-launch/
+- ⚠️ 3 篇推广文案（1 篇可用：Reddit r/LocalLLaMA 英文版）
+- ❌ 2 篇方向错误：V2EX（中文）、知乎（中文）— 目标用户是国际用户！
+- ❌ 邮件收集是假的：setTimeout 模拟，零邮箱收集
+- ❌ GA ID 占位符：G-XXXXXXXXXX
+
+**CEO 审查判决:** REVISE
+**依据:** 推广文案 2/3 面向中文社区（错误受众）；邮件收集未实现；分析追踪未配置。Reddit 英文版可用，其余需重写。
+
+**修正任务:** Task #2（重写英文推广文案）+ Task #3（接入真实邮件收集+GA）
+
+**结论:** 实验尚未真正开始。需要修正后才能推广并收集数据。
+
+---
+
+*最后更新：Day 1 — Wave 003 Revision (CEO Heartbeat Review)*

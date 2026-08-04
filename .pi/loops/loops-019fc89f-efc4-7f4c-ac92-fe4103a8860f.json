@@ -11,9 +11,9 @@
       "status": "active",
       "recurring": true,
       "createdAt": 1785778289984,
-      "updatedAt": 1785778289984,
+      "updatedAt": 1785780016811,
       "expiresAt": 1786383089984,
-      "fireCount": 0
+      "fireCount": 1
     }
   ]
 }

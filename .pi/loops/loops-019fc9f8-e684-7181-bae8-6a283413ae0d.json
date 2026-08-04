@@ -1,0 +1,20 @@
+{
+  "nextId": 2,
+  "loops": [
+    {
+      "id": "1",
+      "prompt": "CEO Heartbeat: 读取 company/company_state.md, company/strategy.md, company/experiments.md (if exists), company/lessons.md (if exists), company/agents/ceo/memory.md (if exists), company/tasks/in-progress/, company/tasks/done/。然后通过 subagent_run 唤醒 CEO (DeepSeek V4 Pro) 来审查当前状态。CEO 需要回答：1. 公司当前状态 2. 员工正在做什么 3. 是否偏离目标 4. 是否需要调整任务 5. 下一阶段最重要行动。如果有 in-progress 任务超时(超过4小时)或 done 任务待审查，立即处理。执行 CEO 决策：分配新任务、审查结果、更新实验记录。如果 Wave 结束了，用 git 提交。\"",
+      "trigger": {
+        "type": "cron",
+        "schedule": "*/30 * * * *"
+      },
+      "status": "active",
+      "recurring": true,
+      "createdAt": 1785800501779,
+      "updatedAt": 1785801611228,
+      "expiresAt": 1786405301779,
+      "maxFires": 60,
+      "fireCount": 1
+    }
+  ]
+}

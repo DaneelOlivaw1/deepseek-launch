@@ -1,6 +1,9 @@
 {
-  "task_id": "wave-002-landing-page",
+  "task_id": "wave-003-deploy-promote",
   "status": "completed",
-  "summary": "完成 DeepSeek Desktop Landing Page（562行单文件HTML），包含产品展示、4个核心功能、8维竞品对比表格、邮箱等待列表、模拟聊天界面、响应式设计",
-  "deliverables": ["company/product/landing-page.html"]
+  "summary": "Landing Page deployed to GitHub Pages at https://daneelolivaw1.github.io/deepseek-launch/ — HTTP 200 confirmed. 3 community promo posts written (Reddit r/LocalLLaMA, V2EX, Zhihu) with CTAs and URL links. Auto-posting blocked by auth requirements — all marked for manual posting.",
+  "deliverables": [
+    "index.html",
+    "company/product/promo-content.md"
+  ]
 }

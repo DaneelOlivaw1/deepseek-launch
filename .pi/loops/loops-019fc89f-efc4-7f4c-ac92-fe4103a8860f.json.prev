@@ -1,4 +1,19 @@
 {
-  "nextId": 2,
-  "loops": []
+  "nextId": 3,
+  "loops": [
+    {
+      "id": "2",
+      "prompt": "🔥 CEO HEARTBEAT — 定时唤醒。\n\n⚠️ 重要：这是一个循环触发的任务。每次唤醒都是独立的回合。请不要依赖之前的对话上下文——所有状态必须从文件中重新读取。\n\n## Step 0: 加载历史记忆\n先从文件系统获取全部状态（不要依赖上下文记忆）：\n1. 读 AGENTS.md（自动加载）\n2. 读 company/company_state.md — 钱、时间、人力\n3. 读 company/strategy.md — 当前假设和方向\n4. 读 company/experiments.md — 实验历史\n5. 读 company/lessons.md — 失败教训\n6. 读 company/agents/ceo/memory.md — CEO 记忆\n7. 读 company/tasks/pending/ — 待执行任务\n8. 读 company/tasks/in-progress/ — 执行中任务\n9. 读 company/tasks/done/ — 待审查任务\n10. 读 ~/.pi/agent/sessions/--Users-daneel-project-deepseek-launch--/ 下的所有会话 JSONL 文件，提取之前 CEO Heartbeat 的决策和结果（这是长期记忆）\n\n## Step 1: 判断当前状态\n回答五个问题：\n1. 公司当前状态（钱、时间、Wave进度）\n2. 员工在做什么？是否有超时任务？\n3. 是否有待审查的结果？\n4. 是否偏离了目标？\n5. 下一阶段最重要的行动是什么？\n\n## Step 2: 执行行动\n- 有 pending 任务 → 移至 in-progress，用 Employee (DeepSeek V4 Flash) 执行\n- 有 done 任务 → 审查结果，PASS/REVISE/ABANDON\n- 有超时任务 → 决定是 REVISE 还是 ABANDON\n- 员工空闲 → CEO 做决策，创建新任务\n- Wave 结束 → conduct-review + Git Commit\n\n## Step 3: 提交\n如果触发了 Wave 结束，执行 Git Commit：`wave-NNN: {decision}`\n\n你是 pi Orchestrator。CEO = DeepSeek V4 Pro（做决策），Employee = DeepSeek V4 Flash（执行）。你不替他们做工作。",
+      "trigger": {
+        "type": "cron",
+        "schedule": "*/30 * * * *"
+      },
+      "status": "active",
+      "recurring": true,
+      "createdAt": 1785778289984,
+      "updatedAt": 1785778289984,
+      "expiresAt": 1786383089984,
+      "fireCount": 0
+    }
+  ]
 }
