@@ -5,13 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DeepSeek Desktop — 让不懂技术的人也能用上最强的国产 AI</title>
 <meta name="description" content="DeepSeek Desktop 是专为普通人打造的桌面 AI 助手。一键安装，像微信一样聊天，支持文档上传，数据本地保护。">
-<!-- Google Analytics placeholder -->
+<!--
+  TODO: Replace with real GA4 Measurement ID from Founder
+  Steps:
+  1. Founder creates GA4 property at https://analytics.google.com
+  2. Copy Measurement ID (format: G-XXXXXXXXXX)
+  3. Uncomment the gtag script below and replace G-XXXXXXXXXX with real ID
+  4. Remove the console.log fallback below
+  
+  For now: all pageviews and events are logged to browser console.
+  Open DevTools → Console to verify tracking works.
+-->
+<!--
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+<!-- Console-based analytics fallback (remove after GA4 is configured) -->
+<script>
+  (function() {
+    var start = Date.now();
+    window.dataLayer = window.dataLayer || [];
+    // Stub gtag so calls don't throw errors
+    window.gtag = function() {
+      console.log('[Analytics stub]', Array.prototype.slice.call(arguments));
+    };
+    // Log pageview on load
+    window.addEventListener('load', function() {
+      console.log('[Analytics] pageview —', {
+        path: window.location.pathname,
+        referrer: document.referrer || 'direct',
+        loadTimeMs: Date.now() - start,
+        screenWidth: window.innerWidth,
+        timestamp: new Date().toISOString()
+      });
+    });
+  })();
 </script>
 <style>
   :root {
@@ -492,8 +525,30 @@
     <h2>抢先体验 DeepSeek Desktop</h2>
     <p>我们正在做最后的打磨。留下邮箱，上线第一时间通知你。<br>早期用户将获得永久免费使用资格。</p>
 
-    <form class="waitlist-form" id="waitlistForm">
-      <input type="email" id="emailInput" placeholder="输入你的邮箱地址" required autocomplete="email">
+    <!--
+      Email collection powered by Formsubmit.co
+      After first submission, Formsubmit will send a verification email to ceo@deepseek-launch.dev.
+      CEO must click the verification link to activate email forwarding.
+      Responses go to: ceo@deepseek-launch.dev
+      Dashboard: https://formsubmit.co/dashboard
+      
+      FALLBACK: If Formsubmit doesn't work, replace this form with Google Forms iframe:
+      1. Create Google Form with 1 Email field
+      2. Go to Send → Embed HTML → copy src URL
+      3. Replace the entire <form>...</form> block with:
+         <!-- GOOGLE_FORM_IFRAME_URL -->
+         <iframe src="YOUR_URL_HERE" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    -->
+    <form class="waitlist-form" id="waitlistForm" action="https://formsubmit.co/ceo@deepseek-launch.dev" method="POST">
+      <!-- Formsubmit hidden config -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="[DeepSeek Desktop] 新用户加入等待列表">
+      <input type="hidden" name="_next" value="https://daneelolivaw1.github.io/deepseek-launch/?subscribed=1">
+      <input type="hidden" name="_template" value="table">
+      <!-- Honeypot anti-spam -->
+      <input type="text" name="_honey" style="display:none">
+
+      <input type="email" id="emailInput" name="email" placeholder="输入你的邮箱地址" required autocomplete="email">
       <button type="submit" id="submitBtn">🚀 加入等待列表</button>
     </form>
     <div class="form-feedback" id="formFeedback"></div>
@@ -518,6 +573,16 @@
   var btn = document.getElementById('submitBtn');
   var fb = document.getElementById('formFeedback');
 
+  // Check for ?subscribed=1 on page load (redirect after Formsubmit success)
+  if (window.location.search.indexOf('subscribed=1') > -1) {
+    fb.textContent = '✅ 已加入等待列表！上线时会第一时间通知你。';
+    fb.className = 'form-feedback success';
+    // Clean URL without reload
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }
+
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     var val = email.value.trim();
@@ -534,27 +599,49 @@
       return;
     }
 
-    // Simulate submission (replace with real endpoint later)
+    // Real submission to Formsubmit.co via AJAX
     btn.disabled = true;
     btn.textContent = '提交中...';
     fb.textContent = '';
     fb.className = 'form-feedback';
 
-    setTimeout(function() {
-      fb.textContent = '✅ 已加入等待列表！上线时会第一时间通知你。';
-      fb.className = 'form-feedback success';
-      btn.disabled = false;
-      btn.textContent = '🚀 加入等待列表';
-      email.value = '';
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(response) {
+      if (response.ok) {
+        fb.textContent = '✅ 已加入等待列表！上线时会第一时间通知你。';
+        fb.className = 'form-feedback success';
+        email.value = '';
 
-      // Google Analytics event (placeholder)
-      if (typeof gtag === 'function') {
-        gtag('event', 'waitlist_signup', {
-          event_category: 'engagement',
-          event_label: 'landing_page_waitlist'
+        // Track signup (console fallback since GA is not configured)
+        console.log('[Analytics] waitlist_signup — email collected:', val);
+        if (typeof gtag === 'function') {
+          gtag('event', 'waitlist_signup', {
+            event_category: 'engagement',
+            event_label: 'landing_page_waitlist'
+          });
+        }
+      } else {
+        return response.json().then(function(data) {
+          throw new Error(data.message || '提交失败，请稍后再试');
         });
       }
-    }, 800);
+    })
+    .catch(function(err) {
+      // If AJAX fails (e.g. CORS), fall back to normal form POST
+      // The _next hidden field will redirect back with ?subscribed=1
+      console.warn('[Analytics] Formsubmit AJAX failed, using fallback redirect:', err.message);
+      fb.textContent = '正在跳转...';
+      fb.className = 'form-feedback';
+      form.submit();
+    })
+    .finally(function() {
+      btn.disabled = false;
+      btn.textContent = '🚀 加入等待列表';
+    });
   });
 })();
 </script>
